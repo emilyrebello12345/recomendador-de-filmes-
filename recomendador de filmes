@@ -1,0 +1,49 @@
+// romance, drama,terror, mistério
+
+// continencia ao amor,14,romance
+//atraves da minha janela,16,romance
+//belo desastre,16,romance
+//365 dias,18,romance drama
+//after,14,drama romance
+//imaculada,18,terror mistério
+
+let campoidade;
+let campofantasia;
+let campoaventura;
+
+function setup() {
+  createCanvas(800, 400);
+  createElement("h2", "recomendador de filmes");
+  createSpan("sua idade");
+  campoidade = createInput("5");
+  campofantasia = createCheckbox("gosta de fantasia?");
+  campoaventura = createCheckbox("gosta de aventura?");
+}
+
+function draw() {
+  background(220);
+  let idade = campoidade.value();
+  let gostadefantasia = campofantasia. checked();
+  let gostadeaventura = campoaventura. checked();
+  
+  let recomendacao = gerarecomendacao(idade, gostadefantasia, gostadeaventura);
+  text(recomendacao,width/2, height/2)
+}
+function gerarecomendacao(idade, gostadefantasia) {
+  if (idade >=10){
+    if (idade >=14) {
+      return "continencia ao amor";
+    } else {
+      if(idade >= 12) {
+      if (gostadefantasia || gostadeaventura){
+        return "atraves da minha janela";
+      } else {
+        return "belo desastre";
+      } 
+    }
+ 
+    return "365 dias";
+  }
+
+}
+}
